@@ -4,6 +4,7 @@
  *
  *  Copyright (c) 1999-2004 Vojtech Pavlik
  *  Copyright (c) 2021-2022 Great Wall
+ *  Copyright (c) 2023-2024 Xin Li
  */
 
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
@@ -26,7 +27,7 @@
 
 #include <asm/io.h>
 
-MODULE_AUTHOR("Vojtech Pavlik <vojtech@suse.cz>");
+MODULE_AUTHOR("Xin Li <xinligg@gmail.com>");
 MODULE_DESCRIPTION("i8042 keyboard and mouse controller driver");
 MODULE_LICENSE("GPL");
 
