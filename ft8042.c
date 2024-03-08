@@ -8,6 +8,7 @@
 
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
 
+#include <linux/acpi.h>
 #include <linux/types.h>
 #include <linux/delay.h>
 #include <linux/module.h>
@@ -1603,6 +1604,17 @@ static struct platform_driver i8042_driver = {
 static struct notifier_block i8042_kbd_bind_notifier_block = {
 	.notifier_call = i8042_kbd_bind_notifier,
 };
+
+#ifdef CONFIG_ACPI
+static const struct acpi_device_id ft8042_acpi_ids[] = {
+        { .id = "KBCI8042" },
+        {},
+};
+
+MODULE_DEVICE_TABLE(acpi, ft8042_acpi_ids);
+#else
+#define ft8042_acpi_ids NULL
+#endif
 
 static int __init i8042_init(void)
 {
